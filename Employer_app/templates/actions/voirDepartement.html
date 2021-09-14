@@ -1,0 +1,40 @@
+
+<div class="center ">
+  <h2 class="text-center">Tous les départements de l'entreprise</h2>
+  
+    
+
+    <a href="{% url 'ajoutDepartement' %}" class="btn btn-info my-4">Ajouter un département</a></br></br></br>
+
+  <table width="800" border="1" style="border-collapse: collapse;" class=" text-center">
+    <thead>
+      <tr >
+        <th>Numéro</th>
+        <th>Nom</th>
+        <th>Actions</th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+    {% if emps %}
+    {% for e in emps %}
+      <tr>
+        <td>{{ forloop.counter}}</td>
+        <td><a href="{% url 'oneEmp' e.id %}">{{e.nom}}</a></td>
+        <td><a href="{% url 'modifierDepartement' e.id %}" class="btn btn-outline-warning">Modifier</a>
+        <a href="{% url 'supprimerDepartement' e.id %}" class="btn btn-outline-warning">Supprimer</a></td>
+      </tr>
+    {% endfor %}
+    {% else %}
+    <tr>
+        <td colspan="4"><span>
+            Département non enregistré
+            </span>
+        </td>
+    </tr>
+
+    {% endif %}
+    </tbody>
+  </table>
+</div>

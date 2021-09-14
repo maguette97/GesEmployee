@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title%}
+Modifier un département
+{% endblock %}
+{% block content %}
+<div class="w50 bg-primary text-white p-4">
+    <h2>Modifier un département</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+{{form.as_p}}
+    <button type="submit" class="btn btn-success">Mettre à jour</button>
+    </form>
+    </div>
+{% endblock %}

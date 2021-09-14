@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title%}
+Liste des employés
+{% endblock %}
+{% block content %}
+<div class="center ">
+  
+  
+    <a href="{% url 'ajouter' %}" class="btn btn-info my-4">Ajouter un employé</a> ---------------------------------------------------
+
+    <a href="{% url 'voirDepartement' %}" class="btn btn-info my-4">Voir les départements</a></br></br></br>
+
+    <h2 class="text-center">Liste des employés</h2>
+
+  <table width="800" border="1" style="border-collapse: collapse;" class=" text-center">
+    <thead>
+      <tr >
+         <th>Identifiant</th>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Téléphone</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    {% if emps %}
+    {% for e in emps %}
+      <tr>
+        <td>{{ forloop.counter}}</td>
+        <td><a href="{% url 'oneEmp' e.id %}">{{e.prenom}}</a></td>
+        <td><a href="{% url 'oneEmp' e.id %}">{{e.nom}}</a></td>
+        <td><a href="{% url 'oneEmp' e.id %}">{{e.tel}}</a></td>
+        <td><a href="{% url 'oneEmp' e.id %}">{{e.mail}}</a></td>
+        <td><a href="{% url 'modifier' e.id %}" class="btn btn-outline-warning">Modifier</a>
+        <a href="{% url 'supprimer' e.id %}" class="btn btn-outline-warning">Supprimer</a></td>
+      </tr>
+    {% endfor %}
+    {% else %}
+    <tr>
+        <td colspan="4"><span>
+             Employé non enregistré
+            </span>
+        </td>
+    </tr>
+
+    {% endif %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

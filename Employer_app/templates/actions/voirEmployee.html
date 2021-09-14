@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title%}
+Profil
+{% endblock %}
+{% block content %}
+<div class="alert alert-dark text-center m-5" role="alert">
+    <h1>Profil de {{emp.prenom}}</h1>
+ <img src="{{emp.pic.url}}" width="300px" class="m-3">
+<h4><b>Nom:</b> {{emp.prenom}}</h4>
+<h4><b>Date début fonction:</b> {{emp.nom}}</h4>
+<h4><b>Email:</b> {{emp.mail}}</h4>
+<h4><b>Téléphone:</b> {{emp.tel}}</h4>
+
+</div>
+{% endblock %}
